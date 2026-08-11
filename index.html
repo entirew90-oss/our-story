@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Story ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#09040a;color:#fff4f7;font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 15%,#ff5b9a18,transparent 30%),radial-gradient(circle at 85% 65%,#c53c8014,transparent 35%);pointer-events:none;z-index:-2}
+#petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}.petal{position:absolute;top:-60px;animation:fall linear infinite;opacity:.7;filter:drop-shadow(0 4px 8px #0005)}
+@keyframes fall{0%{transform:translate3d(0,-60px,0) rotate(0)}100%{transform:translate3d(var(--drift),110vh,0) rotate(420deg)}}
+#lock{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(circle at 50% 20%,#4b1732,#160810 48%,#070307);padding:20px}
+.lock-card{width:min(440px,100%);padding:44px 28px;text-align:center;border:1px solid #ffffff18;background:#ffffff09;backdrop-filter:blur(24px);border-radius:32px;box-shadow:0 30px 100px #000b}
+.big-heart{font-size:66px;animation:heartbeat 1.8s ease-in-out infinite}@keyframes heartbeat{50%{transform:scale(1.13)}}
+.serif{font-family:'Cormorant Garamond',serif}.lock-card h1{font-size:56px;margin:4px 0}.lock-card p{color:#e8c8d3}
+.field{display:flex;background:#fff;border-radius:16px;padding:5px;margin:24px 0 12px}.field input{flex:1;border:0;outline:0;padding:13px;background:transparent;color:#32101f;font-size:16px}.btn{border:0;border-radius:13px;padding:13px 18px;background:linear-gradient(135deg,#ff77a9,#c92f71);color:white;font-weight:600;cursor:pointer;box-shadow:0 10px 28px #d63b7440}
+.err{height:20px;color:#ff9bbb;font-size:13px}
+#site{display:none}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:30px 20px;position:relative}
+.hero-inner{max-width:900px}.eyebrow{letter-spacing:5px;text-transform:uppercase;font-size:11px;color:#ff8eb5}.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(72px,14vw,150px);line-height:.8;margin:28px 0 18px;background:linear-gradient(90deg,#fff,#ffb4cb,#fff);-webkit-background-clip:text;color:transparent}.hero p{font-family:'Cormorant Garamond',serif;font-size:27px;color:#f4d9e1}.scroll{margin-top:55px;color:#cfaeba;font-size:12px;letter-spacing:3px}
+.chapter{width:min(980px,92%);margin:0 auto 150px;position:relative}.chapter:before{content:"";display:block;width:1px;height:70px;background:linear-gradient(#ff6e9d,transparent);margin:0 auto 28px}
+.chapter-head{text-align:center;margin-bottom:38px}.chapter-no{font-size:11px;letter-spacing:5px;color:#ff79a7;text-transform:uppercase}.chapter h2{font:600 clamp(42px,7vw,76px)/.95 'Cormorant Garamond',serif;margin:12px 0;color:#fff}
+.story{background:linear-gradient(145deg,#ffffff0b,#ffffff04);border:1px solid #ffffff12;border-radius:30px;padding:clamp(25px,5vw,55px);box-shadow:0 30px 90px #0006}
+.story p{font:400 clamp(19px,2.1vw,23px)/1.9 'Cormorant Garamond',serif;color:#f8e7ec;margin:0 0 25px}.story p:last-child{margin-bottom:0}
+.memory-photo{margin:34px 0 0;position:relative}.memory-photo img{width:100%;display:block;max-height:680px;object-fit:cover;border-radius:22px;border:1px solid #ffffff20;box-shadow:0 25px 70px #0008}.caption{text-align:center;color:#cdaab7;font-size:13px;margin:12px}
+.quote{margin:38px 0;padding:28px;text-align:center;border-top:1px solid #ff6c9c55;border-bottom:1px solid #ff6c9c55;font:italic 28px 'Cormorant Garamond',serif;color:#ffc3d5}
+.bottom{text-align:center;padding:100px 20px 80px}.bottom .heart{font-size:42px}.bottom h2{font:600 60px 'Cormorant Garamond',serif;margin:10px}.bottom p{color:#cdaab7}
+.admin-link{position:fixed;bottom:15px;right:15px;color:#8e6d79;text-decoration:none;font-size:11px;opacity:.25}.admin-link:hover{opacity:.8}
+@media(max-width:600px){.hero h1{font-size:78px}.hero p{font-size:22px}.story{border-radius:22px}.chapter{margin-bottom:100px}}
+</style>
+</head>
+<body>
+<div id="petals"></div>
+<div id="lock"><div class="lock-card">
+<div class="big-heart">❤️</div><div class="eyebrow">A private place for us</div>
+<h1 class="serif">Our Story</h1><p>Some memories deserve their own little world.</p>
+<div class="field"><input id="pw" type="password" placeholder="Our secret password"><button class="btn" onclick="unlock()">Enter</button></div>
+<div class="err" id="err"></div>
+</div></div>
+<div id="site">
+<section class="hero"><div class="hero-inner"><div class="eyebrow">Two people · countless memories</div><h1>Our<br>Story</h1><p>Every chapter brought me a little closer to you. ❤️</p><div class="scroll">SCROLL TO BEGIN ↓</div></div></section>
+<main id="chapters"></main>
+<section class="bottom"><div class="heart">🌹</div><h2>To be continued...</h2><p>Because our story is still being written. ❤️</p></section>
+</div>
+<a class="admin-link" href="admin.html">private admin</a>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://pqgffymzadhorelndatz.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_LmD7Q941pKqY6gqFHjjz3w_2OOxxtR_';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+const PASSWORD="Anjuu@626";
+const starter=[{order:1,title:"Maybe It Was Written Already",text:`10th ayyaka nenu ITI lo join ayya. Appudu aa time lo sare, life lo edo okati chesi mana future bagundela chusukovali ani focus tho ITI lo koncham manchiga chadavadam start chesa.
+
+Ending year lo oka roju, nenu mee college daggariki enduku vachaano naake teliyadu. Kaani aa timing lo nuvvu kanipinchav.
+
+Nuvvu kanipinchakamundhe nee gurthu vachindi. “Thanani okkasari aina chudali” ani anukunna.
+
+Kanipinchav.
+
+Akkaditho aagipoledu. Ninnu ala evening time lo kanipinchadam kosam, nee kosam sarely dooram nunchi aina chuddam ani college side ki vellevadini.
+
+Ala koncham time gadichaka nuvvu B.Tech ki Warangal vellav ani telisindi.
+
+Appudu naaku hopes poyayi.
+
+“B.Tech kada… evaraina change avutharu le. Lite teesukundam.” ani anukunna.
+
+Kaani asalu ala lite teesukolekapoya.
+
+Tarvatha ITI complete ayindi. Degree lo join avvadaniki ready ayya.
+
+DOST application pettetappudu KMM college ni first lo option lo pettukunna. First phase lo verification kosam Hanamkonda kuda vachanu.
+
+Kaani last phase 4 lo enduko naaku KMM vaddu anipinchi, KMM ni option lo nunchi teesesa.
+
+“Manaki adi raasi unte adi avuthundi.” ani anukunna.
+
+Kaani adi raasi undemo…
+
+3 years KMM.
+
+Nenu anukokunda KMM lo join ayya.
+
+Kaani nuvvu naaku 2nd year lo kanipinchav. ❤️`,photos:[]}];
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function configured(){return !SUPABASE_URL.includes('PASTE_')&&!SUPABASE_ANON_KEY.includes('PASTE_')}
+async function data(){if(!configured())return starter;const {data,error}=await sb.from('chapters').select('*').order('sort_order',{ascending:true});if(error){console.error(error);return starter}if(!data?.length)return starter;return data.map(c=>({order:c.sort_order,title:c.title,text:c.text,photos:(c.photos||[]).map(p=>({data:p.url,caption:p.caption||''}))}))}
+async function render(){let d=await data();let box=document.getElementById('chapters');box.innerHTML='';d.forEach(c=>{let sec=document.createElement('section');sec.className='chapter';let paragraphs=esc(c.text||'').split(/\n\n+/).map(x=>`<p>${x.replace(/\n/g,'<br>')}</p>`).join('');let photos=(c.photos||[]).map(p=>`<div class="memory-photo"><img src="${esc(p.data)}" alt="${esc(p.caption||'Memory')}">${p.caption?`<div class="caption">${esc(p.caption)}</div>`:''}</div>`).join('');sec.innerHTML=`<div class="chapter-head"><div class="chapter-no">Chapter ${c.order}</div><h2>${esc(c.title)}</h2></div><div class="story">${paragraphs}${photos}</div>`;box.appendChild(sec)})}
+function unlock(){if(document.getElementById('pw').value===PASSWORD){sessionStorage.setItem('unlocked','1');document.getElementById('lock').style.display='none';document.getElementById('site').style.display='block';render()}else document.getElementById('err').textContent='Not quite… try again ❤️'}
+function petals(){for(let i=0;i<24;i++){let x=document.createElement('span');x.className='petal';x.textContent=Math.random()>.45?'🌸':'❤️';x.style.left=Math.random()*100+'%';x.style.fontSize=(10+Math.random()*18)+'px';x.style.animationDuration=(8+Math.random()*12)+'s';x.style.animationDelay=(-Math.random()*15)+'s';x.style.setProperty('--drift',(Math.random()*180-90)+'px');document.getElementById('petals').appendChild(x)}}
+petals();if(sessionStorage.getItem('unlocked')==='1'){document.getElementById('lock').style.display='none';document.getElementById('site').style.display='block';render()}
+</script>
+</body></html>
